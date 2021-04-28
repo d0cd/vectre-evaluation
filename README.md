@@ -20,3 +20,7 @@ Evaluation source code for the Vectre++ tool.
 
 - Do not manually edit stuff in the `generated-*` subdirectories. These will likely be overwritten.
 - If you would like to manually experiment, maintain your code in the `edited-*` subdirectories.
+
+## Notes
+- Vectre, by design, is ISA and platform agnostic. Rather, a user can specify these via the appropriate platform definitions. In this work we target RISCV architectures.
+- The scripts use VeriV (riscverifier) to generate program definitions. One can add a backend to the disassembler of their choice to generate appropriate program definitions for their desired ISA.
