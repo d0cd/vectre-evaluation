@@ -1,0 +1,7 @@
+[submodule "riscverifier"]
+	path = riscverifier
+	url = https://github.com/kkmc/riscverifier.git
+	branch = typed_memory
+[submodule "vectre"]
+	path = vectre
+	url = https://github.com/kkmc/vectre.git
