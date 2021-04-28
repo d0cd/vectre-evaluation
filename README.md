@@ -6,7 +6,7 @@ Evaluation source code for the Vectre++ tool.
 
 - `generated-binaries/` Contains RISCV binaries corresponding to those in `program-source`. Automatically generated.
 
-- `generated-program-defns/` Contains program definitions compatible with Vectre, corresponding to those in `program-source`. Automatically generated.
+- `generated-program-defns/` Contains program definitions compatible with Vectre, corresponding to those in `generated-binaries`. Automatically generated.
 
 - `generated-uclid/` Contains UCLID5 verification tasks corresponding to those in `generated-program-defns`. Automatically generated.
 
