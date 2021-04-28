@@ -3,7 +3,7 @@ import os
 import shutil
 
 from pathlib import Path
-from vectre_options import *
+from evaluation_options import *
 
 if '__name__' == '__main__':
     parser = argparse.ArgumentParser(description="Driver for Vectre verification tasks.")
