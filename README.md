@@ -2,7 +2,7 @@
 Evaluation source code for the Vectre++ tool.
 
 ## Project Structure
-`program-source` - Contains source code for vulnerable/safe programs.
+`program-source`: Contains source code for vulnerable/safe programs.
 
 `generated-binaries` - Contains RISCV binaries corresponding to those in `program-source`. Automatically generated.
 
