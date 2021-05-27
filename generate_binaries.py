@@ -24,7 +24,10 @@ def generate_objfiles(root, name):
     new_path = file_path.replace(prog_dir, bin_dir)
     for target in clang_targets:
         precise_path = new_path.replace(".c", f"_{target}.o".replace('-', '_'))
-        command = f"clang -c -target {target} -o {precise_path} {file_path}"
+        if name == 'kocher_ex3.c':
+            command = f"clang -c -fdeclspec -target {target} -o {precise_path} {file_path}"
+        else:
+            command = f"clang -c -target {target} -o {precise_path} {file_path}"
         print(f"\n\nIssuing command: {command}")
         os.system(command)
 

@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdint.h>
-extern size_t array1_size, array2_size, array_size_mask;
-extern uint8_t array1[], array2[], temp;
+size_t array1_size, array2_size, array_size_mask;
+uint8_t array1[], array2[], temp;
 
 
 // ----------------------------------------------------------------------------------------
