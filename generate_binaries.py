@@ -6,8 +6,9 @@
 #      while respecting the directory structure of ./program-source
 
 import os
-import re
 import shutil
+
+from string import Template
 
 bin_dir = './generated-binaries'
 prog_dir = './program-source'
@@ -17,19 +18,32 @@ clang_targets = [
     'mips64-unknown-linux-elf'
 ]
 
+compile_commands = {
+    'kocher_ex3.c' : [
+        ('x86_64', Template("clang -c -fdeclspec -target x86_64-unknown-linux-elf -o ${OUT_PATH} ${FILE_PATH}")),
+        ('aarch64', Template("clang -c -fdeclspec -target aarch64-unknown-linux-elf -o ${OUT_PATH} ${FILE_PATH}")),
+        ('mips64', Template("clang -c -fdeclspec -target mips64-unknown-linux-elf -o ${OUT_PATH} ${FILE_PATH}")),
+        #('rv64', Template("riscv64-unknown-linux-gnu-gcc -c -o ${OUT_PATH} ${FILE_PATH}"))
+    ],
+    'default' :[
+        ('x86_64', Template("clang -c -target x86_64-unknown-linux-elf -o ${OUT_PATH} ${FILE_PATH}")),
+        ('aarch64', Template("clang -c -target aarch64-unknown-linux-elf -o ${OUT_PATH} ${FILE_PATH}")),
+        ('mips64', Template("clang -c -target mips64-unknown-linux-elf -o ${OUT_PATH} ${FILE_PATH}")),
+        ('rv64', Template("riscv64-unknown-linux-gnu-gcc -c -o ${OUT_PATH} ${FILE_PATH}"))
+    ]
+}
+
 
 def generate_objfiles(root, name):
     if name == '.gitkeep': return
     file_path = os.path.join(root, name)
     new_path = file_path.replace(prog_dir, bin_dir)
-    for target in clang_targets:
-        precise_path = new_path.replace(".c", f"_{target}.o".replace('-', '_'))
-        if name == 'kocher_ex3.c':
-            command = f"clang -c -fdeclspec -target {target} -o {precise_path} {file_path}"
-        else:
-            command = f"clang -c -target {target} -o {precise_path} {file_path}"
-        print(f"\n\nIssuing command: {command}")
-        os.system(command)
+    commands = compile_commands.get(name, compile_commands['default'])
+    for (target, command) in commands:
+        out_path = new_path.replace(".c", f"_{target}.o".replace('-', '_'))
+        full_command = command.substitute(OUT_PATH=out_path, FILE_PATH=file_path)
+        print(f"\n\nIssuing command: {full_command}")
+        os.system(full_command)
 
 
 if __name__ == '__main__':
