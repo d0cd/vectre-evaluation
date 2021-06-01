@@ -10,5 +10,5 @@ void victim_function_v01(size_t x) {
 }
 
 void main() {
-    // 
+    victim_function_v01(0);
 }

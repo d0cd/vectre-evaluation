@@ -12,11 +12,6 @@ from string import Template
 
 bin_dir = './generated-binaries'
 prog_dir = './program-source'
-clang_targets = [
-    'x86_64-unknown-linux-elf',
-    'aarch64-unknown-linux-elf',
-    'mips64-unknown-linux-elf'
-]
 
 compile_commands = {
     'kocher_ex3.c' : [
