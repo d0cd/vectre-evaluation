@@ -1,33 +1,33 @@
-prog _generated-binaries_variant1_kocher_ex7_x86_64 {
+prog _generated_binaries_variant1_kocher_ex7_x86_64 {
 ENTRY_4194304:
-    4194304:	push	rbp;
-    4194305:	mov	rbp, rsp;
-    4194308:	mov	qword ptr [rbp - 8], rdi;
-    4194312:	mov	rax, qword ptr [rbp - 8];
-    4194316c:	cmp	rax, qword ptr [0x400068];
-    4194324:	jne	0x400045;
+    0x400000: push__e rbp;
+    0x400001: mov__e__e rbp, rsp;
+    0x400004: mov__p_qword__e rbp - 8, rdi;
+    0x400008: mov__e__p_qword rax, rbp - 8;
+    0x40000c: cmp__e__p_qword rax, 0x400068;
+    0x400014: jne__e 0x400045;
 ENTRY_4194330:
-    4194330a:	mov	rax, qword ptr [rbp - 8];
-    4194334e:	movzx	ecx, byte ptr [rax + 0x500000];
-    4194342:	shl	ecx, 9;
-    4194345:	movsxd	rax, ecx;
-    4194348c:	movzx	ecx, byte ptr [rax + 0x500008];
-    4194356:	movzx	edx, byte ptr [0x500010];
-    4194364c:	and	edx, ecx;
-    4194366e:	mov	byte ptr [0x500010], dl;
-    4194373:	mov	rax, qword ptr [rbp - 8];
-    4194377:	cmp	rax, qword ptr [0x500018];
-    4194385:	jae	0x400063;
+    0x40001a: mov__e__p_qword rax, rbp - 8;
+    0x40001e: movzx__e__p_byte ecx, rax + 0x500000;
+    0x400026: shl__e__e ecx, 9;
+    0x400029: movsxd__e__e rax, ecx;
+    0x40002c: movzx__e__p_byte ecx, rax + 0x500008;
+    0x400034: movzx__e__p_byte edx, 0x500010;
+    0x40003c: and__e__e edx, ecx;
+    0x40003e: mov__p_byte__e 0x500010, dl;
+    0x400045: mov__e__p_qword rax, rbp - 8;
+    0x400049: cmp__e__p_qword rax, 0x500018;
+    0x400051: jae__e 0x400063;
 ENTRY_4194373:
-    4194373:	mov	rax, qword ptr [rbp - 8];
-    4194377:	cmp	rax, qword ptr [0x500018];
-    4194385:	jae	0x400063;
+    0x400045: mov__e__p_qword rax, rbp - 8;
+    0x400049: cmp__e__p_qword rax, 0x500018;
+    0x400051: jae__e 0x400063;
 ENTRY_4194391:
-    4194391:	mov	rax, qword ptr [rbp - 8];
-    4194395b:	mov	qword ptr [0x400068], rax;
-    4194403:	pop	rbp;
-    4194404:	ret;
+    0x400057: mov__e__p_qword rax, rbp - 8;
+    0x40005b: mov__p_qword__e 0x400068, rax;
+    0x400063: pop__e rbp;
+    0x400064: ret;
 ENTRY_4194403:
-    4194403:	pop	rbp;
-    4194404:	ret;
+    0x400063: pop__e rbp;
+    0x400064: ret;
 }

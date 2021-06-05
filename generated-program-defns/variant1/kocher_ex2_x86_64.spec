@@ -1,36 +1,36 @@
-prog _generated-binaries_variant1_kocher_ex2_x86_64 {
+prog _generated_binaries_variant1_kocher_ex2_x86_64 {
 ENTRY_4194304:
-    4194304:	push	rbp;
-    4194305:	mov	rbp, rsp;
-    4194308:	mov	byte ptr [rbp - 1], dil;
-    4194312:	movzx	eax, byte ptr [rbp - 1];
-    4194316c:	shl	eax, 9;
-    4194319f:	movsxd	rcx, eax;
-    4194322:	movzx	eax, byte ptr [rcx + 0x500000];
-    4194330a:	movzx	edx, byte ptr [0x500008];
-    4194338:	and	edx, eax;
-    4194340:	mov	byte ptr [0x500008], dl;
-    4194347b:	pop	rbp;
-    4194348c:	ret;
+    0x400000: push__e rbp;
+    0x400001: mov__e__e rbp, rsp;
+    0x400004: mov__p_byte__e rbp - 1, dil;
+    0x400008: movzx__e__p_byte eax, rbp - 1;
+    0x40000c: shl__e__e eax, 9;
+    0x40000f: movsxd__e__e rcx, eax;
+    0x400012: movzx__e__p_byte eax, rcx + 0x500000;
+    0x40001a: movzx__e__p_byte edx, 0x500008;
+    0x400022: and__e__e edx, eax;
+    0x400024: mov__p_byte__e 0x500008, dl;
+    0x40002b: pop__e rbp;
+    0x40002c: ret;
 ENTRY_4194352:
-    4194352:	push	rbp;
-    4194353:	mov	rbp, rsp;
-    4194356:	sub	rsp, 0x10;
-    4194360:	mov	qword ptr [rbp - 8], rdi;
-    4194364c:	mov	rax, qword ptr [rbp - 8];
-    4194368:	cmp	rax, qword ptr [0x500010];
-    4194376:	jae	0x400061;
+    0x400030: push__e rbp;
+    0x400031: mov__e__e rbp, rsp;
+    0x400034: sub__e__e rsp, 0x10;
+    0x400038: mov__p_qword__e rbp - 8, rdi;
+    0x40003c: mov__e__p_qword rax, rbp - 8;
+    0x400040: cmp__e__p_qword rax, 0x500010;
+    0x400048: jae__e 0x400061;
 ENTRY_4194382:
-    4194382e:	mov	rax, qword ptr [rbp - 8];
-    4194386:	movzx	edi, byte ptr [rax + 0x500018];
-    4194394a:	mov	al, 0;
-    4194396c:	call	0x500020;
+    0x40004e: mov__e__p_qword rax, rbp - 8;
+    0x400052: movzx__e__p_byte edi, rax + 0x500018;
+    0x40005a: mov__e__e al, 0;
+    0x40005c: call__e 0x500020;
 ENTRY_4194401:
-    4194401:	add	rsp, 0x10;
-    4194405:	pop	rbp;
-    4194406:	ret;
+    0x400061: add__e__e rsp, 0x10;
+    0x400065: pop__e rbp;
+    0x400066: ret;
 ENTRY_5242912:
 
 ENTRY_4194349:
-    4194349d:	nop	dword ptr [rax];
+    0x40002d: nop__p_dword rax;
 }

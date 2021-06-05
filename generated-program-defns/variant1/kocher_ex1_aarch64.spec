@@ -1,33 +1,33 @@
-prog _generated-binaries_variant1_kocher_ex1_aarch64 {
+prog _generated_binaries_variant1_kocher_ex1_aarch64 {
 ENTRY_4194304:
-    4194304:	sub	sp, sp, #0x10;
-    4194308:	adrp	x8, #0x400000;
-    4194312:	add	x8, x8, #8;
-    4194316c:	str	x0, [sp, #8];
-    4194320:	ldr	x9, [sp, #8];
-    4194324:	ldr	x8, [x8];
-    4194328:	cmp	x9, x8;
-    4194332c:	b.hs	#0x400058;
+    0x400000: sub__r__r__n sp, sp, 0x10;
+    0x400004: adrp__r__n x8, 0x400000;
+    0x400008: add__r__r__n x8, x8, 8;
+    0x40000c: str__r__t2_post x0, (sp, 8);
+    0x400010: ldr__r__t2_post x9, (sp, 8);
+    0x400014: ldr__r__t1_post x8, (x8);
+    0x400018: cmp__r__r x9, x8;
+    0x40001c: b.hs__n 0x400058;
 ENTRY_4194400:
-    4194400:	ret;
+    0x400060: ret;
 ENTRY_4194392:
-    4194392:	add	sp, sp, #0x10;
-    4194396c:	ret;
+    0x400058: add__r__r__n sp, sp, 0x10;
+    0x40005c: ret;
 ENTRY_4194336:
-    4194336:	ldr	x8, [sp, #8];
-    4194340:	adrp	x9, #0x400000;
-    4194344:	add	x9, x9, #1;
-    4194348c:	ldrb	w10, [x9, x8];
-    4194352:	movz	w11, #0x200;
-    4194356:	mul	w10, w10, w11;
-    4194360:	adrp	x8, #0x400000;
-    4194364c:	add	x8, x8, #1;
-    4194368:	ldrb	w10, [x8, w10, sxtw];
-    4194372:	adrp	x8, #0x400000;
-    4194376:	add	x8, x8, #1;
-    4194380c:	ldrb	w11, [x8];
-    4194384:	and	w10, w11, w10;
-    4194388:	strb	w10, [x8];
-    4194392:	add	sp, sp, #0x10;
-    4194396c:	ret;
+    0x400020: ldr__r__t2_post x8, (sp, 8);
+    0x400024: adrp__r__n x9, 0x400000;
+    0x400028: add__r__r__n x9, x9, 1;
+    0x40002c: ldrb__r__t2_post w10, (x9, x8);
+    0x400030: movz__r__n w11, 0x200;
+    0x400034: mul__r__r__r w10, w10, w11;
+    0x400038: adrp__r__n x8, 0x400000;
+    0x40003c: add__r__r__n x8, x8, 1;
+    0x400040: ldrb__r__t2_sxtw_post w10, (x8, w10);
+    0x400044: adrp__r__n x8, 0x400000;
+    0x400048: add__r__r__n x8, x8, 1;
+    0x40004c: ldrb__r__t1_post w11, (x8);
+    0x400050: and__r__r__r w10, w11, w10;
+    0x400054: strb__r__t1_post w10, (x8);
+    0x400058: add__r__r__n sp, sp, 0x10;
+    0x40005c: ret;
 }

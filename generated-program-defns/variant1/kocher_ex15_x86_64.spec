@@ -1,25 +1,25 @@
-prog _generated-binaries_variant1_kocher_ex15_x86_64 {
+prog _generated_binaries_variant1_kocher_ex15_x86_64 {
 ENTRY_4194304:
-    4194304:	push	rbp;
-    4194305:	mov	rbp, rsp;
-    4194308:	mov	qword ptr [rbp - 8], rdi;
-    4194312:	mov	rax, qword ptr [rbp - 8];
-    4194316c:	mov	rax, qword ptr [rax];
-    4194319f:	cmp	rax, qword ptr [0x500000];
-    4194327:	jae	0x40004b;
+    0x400000: push__e rbp;
+    0x400001: mov__e__e rbp, rsp;
+    0x400004: mov__p_qword__e rbp - 8, rdi;
+    0x400008: mov__e__p_qword rax, rbp - 8;
+    0x40000c: mov__e__p_qword rax, rax;
+    0x40000f: cmp__e__p_qword rax, 0x500000;
+    0x400017: jae__e 0x40004b;
 ENTRY_4194333:
-    4194333d:	mov	rax, qword ptr [rbp - 8];
-    4194337:	mov	rax, qword ptr [rax];
-    4194340:	movzx	ecx, byte ptr [rax + 0x500008];
-    4194348c:	shl	ecx, 9;
-    4194351f:	movsxd	rax, ecx;
-    4194354:	movzx	ecx, byte ptr [rax + 0x500010];
-    4194362a:	movzx	edx, byte ptr [0x500018];
-    4194370:	and	edx, ecx;
-    4194372:	mov	byte ptr [0x500018], dl;
-    4194379b:	pop	rbp;
-    4194380c:	ret;
+    0x40001d: mov__e__p_qword rax, rbp - 8;
+    0x400021: mov__e__p_qword rax, rax;
+    0x400024: movzx__e__p_byte ecx, rax + 0x500008;
+    0x40002c: shl__e__e ecx, 9;
+    0x40002f: movsxd__e__e rax, ecx;
+    0x400032: movzx__e__p_byte ecx, rax + 0x500010;
+    0x40003a: movzx__e__p_byte edx, 0x500018;
+    0x400042: and__e__e edx, ecx;
+    0x400044: mov__p_byte__e 0x500018, dl;
+    0x40004b: pop__e rbp;
+    0x40004c: ret;
 ENTRY_4194379:
-    4194379b:	pop	rbp;
-    4194380c:	ret;
+    0x40004b: pop__e rbp;
+    0x40004c: ret;
 }

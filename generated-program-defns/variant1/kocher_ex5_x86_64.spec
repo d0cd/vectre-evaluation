@@ -1,36 +1,36 @@
-prog _generated-binaries_variant1_kocher_ex5_x86_64 {
+prog _generated_binaries_variant1_kocher_ex5_x86_64 {
 ENTRY_4194304:
-    4194304:	push	rbp;
-    4194305:	mov	rbp, rsp;
-    4194308:	mov	qword ptr [rbp - 8], rdi;
-    4194312:	mov	rax, qword ptr [rbp - 8];
-    4194316c:	cmp	rax, qword ptr [0x500000];
-    4194324:	jae	0x400076;
+    0x400000: push__e rbp;
+    0x400001: mov__e__e rbp, rsp;
+    0x400004: mov__p_qword__e rbp - 8, rdi;
+    0x400008: mov__e__p_qword rax, rbp - 8;
+    0x40000c: cmp__e__p_qword rax, 0x500000;
+    0x400014: jae__e 0x400076;
 ENTRY_4194330:
-    4194330a:	mov	rax, qword ptr [rbp - 8];
-    4194334e:	sub	rax, 1;
-    4194340:	mov	qword ptr [rbp - 0x10], rax;
-    4194344:	cmp	qword ptr [rbp - 0x10], 0;
-    4194349d:	jb	0x400071;
+    0x40001a: mov__e__p_qword rax, rbp - 8;
+    0x40001e: sub__e__e rax, 1;
+    0x400024: mov__p_qword__e rbp - 0x10, rax;
+    0x400028: cmp__p_qword__e rbp - 0x10, 0;
+    0x40002d: jb__e 0x400071;
 ENTRY_4194422:
-    4194422:	pop	rbp;
-    4194423:	ret;
+    0x400076: pop__e rbp;
+    0x400077: ret;
 ENTRY_4194417:
-    4194417:	jmp	0x400076;
+    0x400071: jmp__e 0x400076;
 ENTRY_4194355:
-    4194355:	mov	rax, qword ptr [rbp - 0x10];
-    4194359:	movzx	ecx, byte ptr [rax + 0x500008];
-    4194367f:	shl	ecx, 9;
-    4194370:	movsxd	rax, ecx;
-    4194373:	movzx	ecx, byte ptr [rax + 0x500010];
-    4194381d:	movzx	edx, byte ptr [0x500018];
-    4194389:	and	edx, ecx;
-    4194391:	mov	byte ptr [0x500018], dl;
-    4194398e:	mov	rax, qword ptr [rbp - 0x10];
-    4194402:	add	rax, -1;
-    4194408:	mov	qword ptr [rbp - 0x10], rax;
-    4194412c:	jmp	0x400028;
+    0x400033: mov__e__p_qword rax, rbp - 0x10;
+    0x400037: movzx__e__p_byte ecx, rax + 0x500008;
+    0x40003f: shl__e__e ecx, 9;
+    0x400042: movsxd__e__e rax, ecx;
+    0x400045: movzx__e__p_byte ecx, rax + 0x500010;
+    0x40004d: movzx__e__p_byte edx, 0x500018;
+    0x400055: and__e__e edx, ecx;
+    0x400057: mov__p_byte__e 0x500018, dl;
+    0x40005e: mov__e__p_qword rax, rbp - 0x10;
+    0x400062: add__e__e rax, 1;
+    0x400068: mov__p_qword__e rbp - 0x10, rax;
+    0x40006c: jmp__e 0x400028;
 ENTRY_4194344:
-    4194344:	cmp	qword ptr [rbp - 0x10], 0;
-    4194349d:	jb	0x400071;
+    0x400028: cmp__p_qword__e rbp - 0x10, 0;
+    0x40002d: jb__e 0x400071;
 }

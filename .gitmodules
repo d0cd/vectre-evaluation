@@ -8,4 +8,5 @@
 	branch = main
 [submodule "vectre-angr-disasm"]
 	path = vectre-angr-disasm
-	url = git@github.com:d0cd/vectre-angr-disasm.git
+    url = git@github.com:d0cd/vectre-angr-disasm.git
+    branch = main

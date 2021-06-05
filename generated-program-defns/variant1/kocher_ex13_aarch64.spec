@@ -1,35 +1,35 @@
-prog _generated-binaries_variant1_kocher_ex13_aarch64 {
+prog _generated_binaries_variant1_kocher_ex13_aarch64 {
 ENTRY_4194304:
-    4194304:	sub	sp, sp, #0x20;
-    4194308:	stp	x29, x30, [sp, #0x10];
-    4194312:	add	x29, sp, #0x10;
-    4194316c:	str	x0, [sp, #8];
-    4194320:	ldr	x0, [sp, #8];
-    4194324:	bl	#0x500000;
+    0x400000: sub__r__r__n sp, sp, 0x20;
+    0x400004: stp__r__r__t2_post x29, x30, (sp, 0x10);
+    0x400008: add__r__r__n x29, sp, 0x10;
+    0x40000c: str__r__t2_post x0, (sp, 8);
+    0x400010: ldr__r__t2_post x0, (sp, 8);
+    0x400014: bl__n 0x500000;
 ENTRY_5242880:
 
 ENTRY_4194328:
-    4194328:	cbz	w0, #0x400054;
+    0x400018: cbz__r__n w0, 0x400054;
 ENTRY_4194388:
-    4194388:	ldp	x29, x30, [sp, #0x10];
-    4194392:	add	sp, sp, #0x20;
-    4194396c:	ret;
+    0x400054: ldp__r__r__t2_post x29, x30, (sp, 0x10);
+    0x400058: add__r__r__n sp, sp, 0x20;
+    0x40005c: ret;
 ENTRY_4194332:
-    4194332c:	ldr	x8, [sp, #8];
-    4194336:	adrp	x9, #0x500000;
-    4194340:	add	x9, x9, #8;
-    4194344:	ldrb	w10, [x9, x8];
-    4194348c:	movz	w11, #0x200;
-    4194352:	mul	w10, w10, w11;
-    4194356:	adrp	x8, #0x500000;
-    4194360:	add	x8, x8, #0x10;
-    4194364c:	ldrb	w10, [x8, w10, sxtw];
-    4194368:	adrp	x8, #0x500000;
-    4194372:	add	x8, x8, #0x18;
-    4194376:	ldrb	w11, [x8];
-    4194380c:	and	w10, w11, w10;
-    4194384:	strb	w10, [x8];
-    4194388:	ldp	x29, x30, [sp, #0x10];
-    4194392:	add	sp, sp, #0x20;
-    4194396c:	ret;
+    0x40001c: ldr__r__t2_post x8, (sp, 8);
+    0x400020: adrp__r__n x9, 0x500000;
+    0x400024: add__r__r__n x9, x9, 8;
+    0x400028: ldrb__r__t2_post w10, (x9, x8);
+    0x40002c: movz__r__n w11, 0x200;
+    0x400030: mul__r__r__r w10, w10, w11;
+    0x400034: adrp__r__n x8, 0x500000;
+    0x400038: add__r__r__n x8, x8, 0x10;
+    0x40003c: ldrb__r__t2_sxtw_post w10, (x8, w10);
+    0x400040: adrp__r__n x8, 0x500000;
+    0x400044: add__r__r__n x8, x8, 0x18;
+    0x400048: ldrb__r__t1_post w11, (x8);
+    0x40004c: and__r__r__r w10, w11, w10;
+    0x400050: strb__r__t1_post w10, (x8);
+    0x400054: ldp__r__r__t2_post x29, x30, (sp, 0x10);
+    0x400058: add__r__r__n sp, sp, 0x20;
+    0x40005c: ret;
 }
