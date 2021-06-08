@@ -9,7 +9,7 @@ ENTRY_4194304:
     0x400018bv64: and__r__r__r x8, x9, x8;
     0x40001cbv64: ldr__r__t_2_r_n_post x9, (sp, 8);
     0x400020bv64: cmp__r__r x8, x9;
-    0x400024bv64: b.ne__n 0x400060bv64;
+    0x400024bv64: b_ne__n 0x400060bv64;
 ENTRY_4194400:
     0x400060bv64: add__r__r__n sp, sp, 0x10bv64;
     0x400064bv64: ret;

@@ -9,7 +9,7 @@ ENTRY_4194304:
     0x400018bv64: ldr__r__t_2_r_n_post x9, (sp, 8);
     0x40001cbv64: ldr__r__t_1_r_post x8, (x8);
     0x400020bv64: cmp__r__r x9, x8;
-    0x400024bv64: b.hs__n 0x400074bv64;
+    0x400024bv64: b_hs__n 0x400074bv64;
 ENTRY_4194420:
     0x400074bv64: ldp__r__r__t_2_r_n_post x29, x30, (sp, 0x10bv64);
     0x400078bv64: add__r__r__n sp, sp, 0x20bv64;

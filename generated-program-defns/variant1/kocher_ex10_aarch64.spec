@@ -8,7 +8,7 @@ ENTRY_4194304:
     0x400014bv64: ldr__r__t_2_r_n_post x9, (sp, 8);
     0x400018bv64: ldr__r__t_1_r_post x8, (x8);
     0x40001cbv64: cmp__r__r x9, x8;
-    0x400020bv64: b.hs__n 0x400060bv64;
+    0x400020bv64: b_hs__n 0x400060bv64;
 ENTRY_4194400:
     0x400060bv64: add__r__r__n sp, sp, 0x10bv64;
     0x400064bv64: ret;
@@ -19,7 +19,7 @@ ENTRY_4194340:
     0x400030bv64: ldrb__r__t_2_r_r_post w10, (x9, x8);
     0x400034bv64: ldrb__r__t_2_r_n_post w11, (sp, 7);
     0x400038bv64: cmp__r__r w10, w11;
-    0x40003cbv64: b.ne__n 0x400060bv64;
+    0x40003cbv64: b_ne__n 0x400060bv64;
 ENTRY_4194368:
     0x400040bv64: adrp__r__n x8, 0x500000bv64;
     0x400044bv64: add__r__r__n x8, x8, 0x10bv64;
