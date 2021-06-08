@@ -17,7 +17,7 @@ def generate_objfiles(root, name):
     if name == '.gitkeep': return
     file_path = os.path.join(root, name)
     new_path = file_path.replace(bin_dir, prog_def_dir).replace(".o", ".spec")
-    command = f"./vectre-angr-disasm/vectre-angr-disasm {file_path} {new_path}"
+    command = f"./vectre-angr-disasm/vectre-angr-disasm {file_path} --prog-def {new_path}"
     print(f"\n\nIssuing command: {command}")
     os.system(command)
 
