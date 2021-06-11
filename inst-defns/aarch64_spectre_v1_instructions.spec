@@ -1,21 +1,26 @@
 inst str__r__t_2_r_n_post(arg0: reg_index_t, arg1: {reg_index_t, word_t}) {
-    // TODO: Specify me.
+    mem[regs[arg1._1] + arg1._1] = regs[arg0];
+    pc = pc + 4bv64;
 }
 
 inst sub__r__r__n(arg0: reg_index_t, arg1: reg_index_t, arg2: word_t) {
-    // TODO: Specify me.
+    regs[arg0] = regs[arg1] - args2;
+    pc = pc + 4bv64;
 }
 
 inst movz__r__n(arg0: reg_index_t, arg1: word_t) {
-    // TODO: Specify me.
+    regs[arg0] = arg1;
+    pc = pc + 4bv64
 }
 
 inst cset__r__r(arg0: reg_index_t, arg1: reg_index_t) {
     // TODO: Specify me.
+    // TODO: Type
 }
 
 inst str__r__t_1_r_post(arg0: reg_index_t, arg1: {reg_index_t}) {
-    // TODO: Specify me.
+    mem[regs[arg1._1]] = regs[arg0];
+    pc = pc + 4bv64;
 }
 
 inst cmp__r__r(arg0: reg_index_t, arg1: reg_index_t) {
@@ -28,6 +33,8 @@ inst ldrb__r__t_1_r_post(arg0: reg_index_t, arg1: {reg_index_t}) {
 
 inst add__r__r__r(arg0: reg_index_t, arg1: reg_index_t, arg2: reg_index_t) {
     // TODO: Specify me.
+    regs[args0] = regs[arg1] + regs[arg2];
+    pc = pc + 4bv64;
 }
 
 inst strb__r__t_1_r_post(arg0: reg_index_t, arg1: {reg_index_t}) {
