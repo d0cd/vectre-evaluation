@@ -29,7 +29,6 @@ ENTRY_4194401:
     0x400061: add__r__w rsp, 0x10bv64;
     0x400065: pop__r rbp;
     0x400066: ret;
-ENTRY_5242912:
 
 ENTRY_4194349:
     0x40002d: nop__p_dword rax;

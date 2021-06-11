@@ -6,7 +6,6 @@ ENTRY_4194304:
     0x400008: mov__p_qword__r rbp - 8, rdi;
     0x40000c: mov__r__p_qword rdi, rbp - 8;
     0x400010: call__w 0x500000bv64;
-ENTRY_5242880:
 
 ENTRY_4194325:
     0x400015: cmp__r__w eax, 0;

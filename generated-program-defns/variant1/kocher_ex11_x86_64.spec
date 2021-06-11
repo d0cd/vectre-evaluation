@@ -23,7 +23,6 @@ ENTRY_4194393:
     0x400059: add__r__w rsp, 0x10bv64;
     0x40005d: pop__r rbp;
     0x40005e: ret;
-ENTRY_5242912:
 
 ENTRY_4194386:
     0x400052: mov__p_byte__r 0x500018bv64, al;
