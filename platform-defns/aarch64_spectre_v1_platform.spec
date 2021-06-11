@@ -1,65 +1,46 @@
 platform aarch64 {
 
-    // Registers in AArch64 state
-    arch var main_mem: mem[64, 8];
+    arch var main_mem: [bv64, bv8];
 
-    arch var pc: reg[64];
+    arch var pc: bv64;
 
-    arch var C: reg[1];
+    arch var gpr_0 : bv64;
+    arch var gpr_1 : bv64;
+    arch var gpr_2 : bv64;
+    arch var gpr_3 : bv64;
+    arch var gpr_4 : bv64;
+    arch var gpr_5 : bv64;
+    arch var gpr_6 : bv64;
+    arch var gpr_7 : bv64;
+    arch var gpr_8 : bv64;
+    arch var gpr_9 : bv64;
+    arch var gpr_10: bv64;
+    arch var gpr_11: bv64;
+    arch var gpr_12: bv64;
+    arch var gpr_13: bv64;
+    arch var gpr_14: bv64;
+    arch var gpr_15: bv64;
+    arch var gpr_16: bv64;
+    arch var gpr_17: bv64;
+    arch var gpr_18: bv64;
+    arch var gpr_19: bv64;
+    arch var gpr_21: bv64;
+    arch var gpr_22: bv64;
+    arch var gpr_23: bv64;
+    arch var gpr_24: bv64;
+    arch var gpr_25: bv64;
+    arch var gpr_26: bv64;
+    arch var gpr_27: bv64;
+    arch var gpr_28: bv64;
+    arch var gpr_29: bv64;
+    arch var gpr_30: bv64;
+    arch var sp: bv64;
 
-    arch var reg_0 : reg[64];
-    arch var reg_1 : reg[64];
-    arch var reg_2 : reg[64];
-    arch var reg_3 : reg[64];
-    arch var reg_4 : reg[64];
-    arch var reg_5 : reg[64];
-    arch var reg_6 : reg[64];
-    arch var reg_7 : reg[64];
-    arch var reg_8 : reg[64];
-    arch var reg_9 : reg[64];
-    arch var reg_10: reg[64];
-    arch var reg_11: reg[64];
-    arch var reg_12: reg[64];
-    arch var reg_13: reg[64];
-    arch var reg_14: reg[64];
-    arch var reg_15: reg[64];
-    arch var reg_16: reg[64];
-    arch var reg_17: reg[64];
-    arch var reg_18: reg[64];
-    arch var reg_19: reg[64];
-    arch var reg_20: reg[64];
-    arch var reg_20: reg[64];
-    arch var reg_20: reg[64];
-    arch var reg_20: reg[64];
-    arch var reg_20: reg[64];
-    arch var reg_20: reg[64];
-    arch var reg_20: reg[64];
-    arch var reg_20: reg[64];
-    arch var reg_20: reg[64];
-    arch var reg_20: reg[64];
-    arch var lr, reg_30: reg[64];
-
-    arch var sp, sp_el0: reg[64];
-    arch var sp_el1: reg[64];
-    arch var sp_el2: reg[64];
-    arch var sp_el3: reg[64];
-
-    arch var elr_el1: reg[64];
-    arch var elr_el2: reg[64];
-    arch var elr_el3: reg[64];
-
-    arch var spsr_el1: reg[32];
-    arch var spsr_el2: reg[32];
-    arch var spsr_el3: reg[32];
-
-    // Flags
-    flag N;
-    flag Z;
-    flag C;
-    flag V;
-
-
-
+    // Condition Flags
+    arch var N: bv1;
+    arch var Z: bv1;
+    arch var C: bv1;
+    arch var V: bv1;
 
 
 }
