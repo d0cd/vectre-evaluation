@@ -1,6 +1,6 @@
 platform aarch64 {
 
-    arch var main_mem: [bv64, bv8];
+    arch var main_mem: [bv64, bv64];
 
     arch var pc: bv64;
 
