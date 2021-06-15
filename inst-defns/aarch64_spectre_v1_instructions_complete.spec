@@ -9,7 +9,8 @@ inst add__r64__r64__r64(arg0: bv64, arg1: bv64, arg2: bv64) {
 }
 
 inst adrp__r64__n(arg0: bv64, arg1: bv64) {
-    // TODO: Specify me.
+    arg0 = bv_left_shift(12bv8, add_bv64_bv64(arg0, arg1));
+    pc = add_bv64_bv64(pc, 4bv64);
 }
 
 inst and__r32__r32__r32(arg0: bv64, arg1: bv64, arg2: bv64) {
@@ -23,39 +24,71 @@ inst and__r64__r64__r64(arg0: bv64, arg1: bv64, arg2: bv64) {
 }
 
 inst b__n(arg0: bv64) {
-    // TODO: Specify me.
+    pc = arg0;
 }
 
 inst b_hs__n(arg0: bv64) {
-    // TODO: Specify me.
+    if (C == 1bv1) {
+        pc = arg0;
+    } else {
+        pc = add_bv64_bv64(pc, 4bv64);
+    }
 }
 
 inst b_ne__n(arg0: bv64) {
-    // TODO: Specify me.
+    if (Z == 0bv1) {
+        pc = arg0;
+    } else {
+        pc = add_bv64_bv64(pc, 4bv64);
+    }
 }
 
 inst bl__n(arg0: bv64) {
-    // TODO: Specify me.
+    gpr_30 = add_bv64_bv64(pc, 4bv64);
+    pc = arg0;
 }
 
 inst blr__r64(arg0: bv64) {
-    // TODO: Specify me.
+    gpr_30 = add_bv64_bv64(pc, 4bv64);
+    pc = arg0;
 }
 
-inst cbz__r32__n(arg0: bv32, arg1: bv64) {
-    // TODO: Specify me.
+inst cbz__r32__n(arg0: bv64, arg1: bv64) {
+    if (arg0[31:0] == 0bv32) {
+        pc = arg1;
+    } else {
+        pc = add_bv64_bv64(pc, 4bv64);
+    }
 }
 
 inst cmp__r32__r32(arg0: bv32, arg1: bv32) {
-    // TODO: Specify me.
+    var new_val: bv32;
+    new_val = sub_bv32_bv32(arg1[31:0], arg2[31:0]);
+    N = if (bv_slt_bv32_bv32(new_val, 0bv32)) then 1bv1 else 0bv1;
+    Z = if (new_val == 0bv32) then 1bv1 else 0bv1;
+    C = if (bv_ult_bv32_bv32(arg1[31:0], new_val)) then 1bv1 else 0bv1;
+    V = if (two_c_sign(arg1[31:0]) != two_c_sign(arg2[31:0]) && two_c_sign(arg2[31:0]) == two_c_sign(new_val)) then 1bv1 else 0bv1;
+    pc = add_bv64_bv64(pc, 4bv64);
 }
 
 inst cmp__r64__n(arg0: bv64, arg1: bv64) {
-    // TODO: Specify me.
+    var new_val: bv64;
+    new_val = sub_bv64_bv64(arg1, arg2);
+    N = if (bv_slt_bv64_bv64(new_val, 0bv64)) then 1bv1 else 0bv1;
+    Z = if (new_val == 0bv64) then 1bv1 else 0bv1;
+    C = if (bv_ult_bv64_bv64(arg1, new_val)) then 1bv1 else 0bv1;
+    V = if (two_c_sign(arg1) != two_c_sign(arg2) && two_c_sign(arg2) == two_c_sign(new_val)) then 1bv1 else 0bv1;
+    pc = add_bv64_bv64(pc, 4bv64);
 }
 
 inst cmp__r64__r64(arg0: bv64, arg1: bv64) {
-    // TODO: Specify me.
+    var new_val: bv64;
+    new_val = sub_bv64_bv64(arg1, arg2);
+    N = if (bv_slt_bv64_bv64(new_val, 0bv64)) then 1bv1 else 0bv1;
+    Z = if (new_val == 0bv64) then 1bv1 else 0bv1;
+    C = if (bv_ult_bv64_bv64(arg1, new_val)) then 1bv1 else 0bv1;
+    V = if (two_c_sign(arg1) != two_c_sign(arg2) && two_c_sign(arg2) == two_c_sign(new_val)) then 1bv1 else 0bv1;
+    pc = add_bv64_bv64(pc, 4bv64);
 }
 
 inst cset_lo__r32(arg0: bv64) {
@@ -119,7 +152,7 @@ inst ldrb__r32__t_2_r64_r64(arg0: bv32, arg1: {bv64, bv64}) {
 }
 
 inst lsl__r64__r64__n(arg0: bv64, arg1: bv64, arg2: bv64) {
-    arg0 = bv_left_shift(arg1, arg2);
+    arg0 = bv_left_shift(arg2, arg1);
     pc = add_bv64_bv64(pc, 4bv64);
 }
 
@@ -149,11 +182,16 @@ inst mul__r32__r32__r32(arg0: bv32, arg1: bv32, arg2: bv32) {
 }
 
 inst ret() {
-    // TODO: Specify me.
+    pc = gpr_30;
 }
 
 inst stp__r64__r64__t_2_r64_n(arg0: bv64, arg1: bv64, arg2: {bv64, bv64}) {
-    // TODO: Specify me.
+    var addr: bv64;
+    addr = add_bv64_bv64(arg2._1, arg2._2);
+
+    main_mem[addr] = arg0;
+    main_mem[add_bv64_bv64(addr, 8bv64)] = arg1;
+    pc = add_bv64_bv64(pc, 4bv64);
 }
 
 inst str__r64__t_1_r64(arg0: bv64, arg1: {bv64}) {
@@ -182,13 +220,25 @@ inst sub__r64__r64__n(arg0: bv64, arg1: bv64, arg2: bv64) {
 }
 
 inst subs__r64__r64__n(arg0: bv64, arg1: bv64, arg2: bv64) {
-    // TODO: Specify me.
+    var new_val: bv64;
+    new_val = sub_bv64_bv64(arg1, arg2);
+    N = if (bv_slt_bv64_bv64(new_val, 0bv64)) then 1bv1 else 0bv1;
+    Z = if (new_val == 0bv64) then 1bv1 else 0bv1;
+    C = if (bv_ult_bv64_bv64(arg1, new_val)) then 1bv1 else 0bv1;
+    V = if (two_c_sign(arg1) != two_c_sign(arg2) && two_c_sign(arg2) == two_c_sign(new_val)) then 1bv1 else 0bv1;
+    arg0 = new_val;
+    pc = add_bv64_bv64(pc, 4bv64);
 }
 
 inst sxtw__r64__r32(arg0: bv64, arg1: bv32) {
-    // TODO: Specify me.
+    arg0 = bv_sign_extend(32, arg1);
+    pc = add_bv64_bv64(pc, 4bv64);
 }
 
-inst tbnz__r32__n__n(arg0: bv32, arg1: bv64, arg2: bv64) {
-    // TODO: Specify me.
+inst tbnz_0__r32__n__n(arg0: bv64, arg1: bv64) {
+    if (arg0[0:0] == 1bv1) {
+        pc = arg1;
+    } else {
+        pc = add_bv64_bv64(pc, 4bv64);
+    }
 }
