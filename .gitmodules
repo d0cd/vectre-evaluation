@@ -5,7 +5,7 @@
 [submodule "vectre"]
 	path = vectre
 	url = git@github.com:kkmc/vectre.git
-	branch = main
+	branch = remove_hardcoded_vars
 [submodule "vectre-angr-disasm"]
 	path = vectre-angr-disasm
     url = git@github.com:d0cd/vectre-angr-disasm.git
