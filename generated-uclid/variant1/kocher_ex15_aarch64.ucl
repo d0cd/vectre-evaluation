@@ -1,0 +1,332 @@
+module platform {
+    type * = common.*;
+    const * = common.*;
+    function * = common.*;
+    define * = common.*;
+    var main_mem: mem_t;
+    var pc: bv64;
+    var gpr_0: bv64;
+    var gpr_1: bv64;
+    var gpr_2: bv64;
+    var gpr_3: bv64;
+    var gpr_4: bv64;
+    var gpr_5: bv64;
+    var gpr_6: bv64;
+    var gpr_7: bv64;
+    var gpr_8: bv64;
+    var gpr_9: bv64;
+    var gpr_10: bv64;
+    var gpr_11: bv64;
+    var gpr_12: bv64;
+    var gpr_13: bv64;
+    var gpr_14: bv64;
+    var gpr_15: bv64;
+    var gpr_16: bv64;
+    var gpr_17: bv64;
+    var gpr_18: bv64;
+    var gpr_19: bv64;
+    var gpr_21: bv64;
+    var gpr_22: bv64;
+    var gpr_23: bv64;
+    var gpr_24: bv64;
+    var gpr_25: bv64;
+    var gpr_26: bv64;
+    var gpr_27: bv64;
+    var gpr_28: bv64;
+    var gpr_29: bv64;
+    var gpr_30: bv64;
+    var sp: bv64;
+    var N: bv1;
+    var Z: bv1;
+    var C: bv1;
+    var V: bv1;
+    var main_mem_snapshot: [spec_level_t]mem_t;
+    var pc_snapshot: [spec_level_t]bv64;
+    var gpr_0_snapshot: [spec_level_t]bv64;
+    var gpr_1_snapshot: [spec_level_t]bv64;
+    var gpr_2_snapshot: [spec_level_t]bv64;
+    var gpr_3_snapshot: [spec_level_t]bv64;
+    var gpr_4_snapshot: [spec_level_t]bv64;
+    var gpr_5_snapshot: [spec_level_t]bv64;
+    var gpr_6_snapshot: [spec_level_t]bv64;
+    var gpr_7_snapshot: [spec_level_t]bv64;
+    var gpr_8_snapshot: [spec_level_t]bv64;
+    var gpr_9_snapshot: [spec_level_t]bv64;
+    var gpr_10_snapshot: [spec_level_t]bv64;
+    var gpr_11_snapshot: [spec_level_t]bv64;
+    var gpr_12_snapshot: [spec_level_t]bv64;
+    var gpr_13_snapshot: [spec_level_t]bv64;
+    var gpr_14_snapshot: [spec_level_t]bv64;
+    var gpr_15_snapshot: [spec_level_t]bv64;
+    var gpr_16_snapshot: [spec_level_t]bv64;
+    var gpr_17_snapshot: [spec_level_t]bv64;
+    var gpr_18_snapshot: [spec_level_t]bv64;
+    var gpr_19_snapshot: [spec_level_t]bv64;
+    var gpr_21_snapshot: [spec_level_t]bv64;
+    var gpr_22_snapshot: [spec_level_t]bv64;
+    var gpr_23_snapshot: [spec_level_t]bv64;
+    var gpr_24_snapshot: [spec_level_t]bv64;
+    var gpr_25_snapshot: [spec_level_t]bv64;
+    var gpr_26_snapshot: [spec_level_t]bv64;
+    var gpr_27_snapshot: [spec_level_t]bv64;
+    var gpr_28_snapshot: [spec_level_t]bv64;
+    var gpr_29_snapshot: [spec_level_t]bv64;
+    var gpr_30_snapshot: [spec_level_t]bv64;
+    var sp_snapshot: [spec_level_t]bv64;
+    var N_snapshot: [spec_level_t]bv1;
+    var Z_snapshot: [spec_level_t]bv1;
+    var C_snapshot: [spec_level_t]bv1;
+    var V_snapshot: [spec_level_t]bv1;
+    var spec_level: spec_level_t;
+    var valid_commit: [spec_level_t]boolean;
+    var obs: obs_t;
+    var speculate: boolean;
+    var resolving: boolean;
+    instance adv: adversary();
+    procedure resolve() 
+    {
+        var new_spec_level: spec_level_t;
+        assume(sl_zero<=_unew_spec_level&&new_spec_level<_uspec_level);
+        spec_level = new_spec_level;
+        assume(!valid_commit[spec_level]);
+        main_mem = main_mem_snapshot[spec_level];
+        pc = pc_snapshot[spec_level];
+        gpr_0 = gpr_0_snapshot[spec_level];
+        gpr_1 = gpr_1_snapshot[spec_level];
+        gpr_2 = gpr_2_snapshot[spec_level];
+        gpr_3 = gpr_3_snapshot[spec_level];
+        gpr_4 = gpr_4_snapshot[spec_level];
+        gpr_5 = gpr_5_snapshot[spec_level];
+        gpr_6 = gpr_6_snapshot[spec_level];
+        gpr_7 = gpr_7_snapshot[spec_level];
+        gpr_8 = gpr_8_snapshot[spec_level];
+        gpr_9 = gpr_9_snapshot[spec_level];
+        gpr_10 = gpr_10_snapshot[spec_level];
+        gpr_11 = gpr_11_snapshot[spec_level];
+        gpr_12 = gpr_12_snapshot[spec_level];
+        gpr_13 = gpr_13_snapshot[spec_level];
+        gpr_14 = gpr_14_snapshot[spec_level];
+        gpr_15 = gpr_15_snapshot[spec_level];
+        gpr_16 = gpr_16_snapshot[spec_level];
+        gpr_17 = gpr_17_snapshot[spec_level];
+        gpr_18 = gpr_18_snapshot[spec_level];
+        gpr_19 = gpr_19_snapshot[spec_level];
+        gpr_21 = gpr_21_snapshot[spec_level];
+        gpr_22 = gpr_22_snapshot[spec_level];
+        gpr_23 = gpr_23_snapshot[spec_level];
+        gpr_24 = gpr_24_snapshot[spec_level];
+        gpr_25 = gpr_25_snapshot[spec_level];
+        gpr_26 = gpr_26_snapshot[spec_level];
+        gpr_27 = gpr_27_snapshot[spec_level];
+        gpr_28 = gpr_28_snapshot[spec_level];
+        gpr_29 = gpr_29_snapshot[spec_level];
+        gpr_30 = gpr_30_snapshot[spec_level];
+        sp = sp_snapshot[spec_level];
+        N = N_snapshot[spec_level];
+        Z = Z_snapshot[spec_level];
+        C = C_snapshot[spec_level];
+        V = V_snapshot[spec_level];
+    }
+    procedure snapshot() 
+    {
+        main_mem_snapshot[spec_level] = main_mem;
+        pc_snapshot[spec_level] = pc;
+        gpr_0_snapshot[spec_level] = gpr_0;
+        gpr_1_snapshot[spec_level] = gpr_1;
+        gpr_2_snapshot[spec_level] = gpr_2;
+        gpr_3_snapshot[spec_level] = gpr_3;
+        gpr_4_snapshot[spec_level] = gpr_4;
+        gpr_5_snapshot[spec_level] = gpr_5;
+        gpr_6_snapshot[spec_level] = gpr_6;
+        gpr_7_snapshot[spec_level] = gpr_7;
+        gpr_8_snapshot[spec_level] = gpr_8;
+        gpr_9_snapshot[spec_level] = gpr_9;
+        gpr_10_snapshot[spec_level] = gpr_10;
+        gpr_11_snapshot[spec_level] = gpr_11;
+        gpr_12_snapshot[spec_level] = gpr_12;
+        gpr_13_snapshot[spec_level] = gpr_13;
+        gpr_14_snapshot[spec_level] = gpr_14;
+        gpr_15_snapshot[spec_level] = gpr_15;
+        gpr_16_snapshot[spec_level] = gpr_16;
+        gpr_17_snapshot[spec_level] = gpr_17;
+        gpr_18_snapshot[spec_level] = gpr_18;
+        gpr_19_snapshot[spec_level] = gpr_19;
+        gpr_21_snapshot[spec_level] = gpr_21;
+        gpr_22_snapshot[spec_level] = gpr_22;
+        gpr_23_snapshot[spec_level] = gpr_23;
+        gpr_24_snapshot[spec_level] = gpr_24;
+        gpr_25_snapshot[spec_level] = gpr_25;
+        gpr_26_snapshot[spec_level] = gpr_26;
+        gpr_27_snapshot[spec_level] = gpr_27;
+        gpr_28_snapshot[spec_level] = gpr_28;
+        gpr_29_snapshot[spec_level] = gpr_29;
+        gpr_30_snapshot[spec_level] = gpr_30;
+        sp_snapshot[spec_level] = sp;
+        N_snapshot[spec_level] = N;
+        Z_snapshot[spec_level] = Z;
+        C_snapshot[spec_level] = C;
+        V_snapshot[spec_level] = V;
+        spec_level = spec_level+sl_one;
+    }
+    procedure spec_blk_4194304() 
+        modifies N, main_mem, gpr_9, pc, V, gpr_8, Z, sp, C;
+    {
+        if (speculate) {
+            call snapshot();
+        }
+        {
+            sp = sub_bv64_bv64(sp, 10bv64);
+            pc = add_bv64_bv64(pc, 4bv64);
+        }
+        {
+            gpr_8 = bv_left_shift(12bv8, add_bv64_bv64(gpr_8, 500000bv64));
+            pc = add_bv64_bv64(pc, 4bv64);
+        }
+        {
+            gpr_8 = add_bv64_bv64(gpr_8, 0);
+            pc = add_bv64_bv64(pc, 4bv64);
+        }
+        {
+            main_mem[add_bv64_bv64({sp, 8}._1, {sp, 8}._2)] = gpr_0;
+            pc = add_bv64_bv64(pc, 4bv64);
+        }
+        {
+            gpr_9 = main_mem[add_bv64_bv64(arg._1, arg._2)];
+            pc = add_bv64_bv64(pc, 4bv64);
+        }
+        {
+            gpr_9 = main_mem[{gpr_9}._1];
+            pc = add_bv64_bv64(pc, 4bv64);
+        }
+        {
+            gpr_8 = main_mem[{gpr_8}._1];
+            pc = add_bv64_bv64(pc, 4bv64);
+        }
+        {
+            N = if (bv_slt_bv64_bv64(sub_bv64_bv64(gpr_8, arg2), 0bv64)) then 1bv1 else 0bv1;
+            Z = if (sub_bv64_bv64(gpr_8, arg2)==0bv64) then 1bv1 else 0bv1;
+            C = if (bv_ult_bv64_bv64(gpr_8, sub_bv64_bv64(gpr_8, arg2))) then 1bv1 else 0bv1;
+            V = if (l_and(neq(two_c_sign(gpr_8[31:0]), two_c_sign(arg2[31:0])), two_c_sign(arg2[31:0])==two_c_sign(sub_bv64_bv64(gpr_8, arg2)))) then 1bv1 else 0bv1;
+            pc = add_bv64_bv64(pc, 4bv64);
+        }
+        {
+            if (C==1bv1) {
+                pc = 400060bv64;
+            } else {
+                pc = add_bv64_bv64(pc, 4bv64);
+            }
+        }
+    }
+    procedure spec_blk_4194400() 
+        modifies pc, sp;
+    {
+        if (speculate) {
+            call snapshot();
+        }
+        {
+            sp = add_bv64_bv64(sp, 10bv64);
+            pc = add_bv64_bv64(pc, 4bv64);
+        }
+        {
+            pc = gpr_30;
+        }
+    }
+    procedure spec_blk_4194340() 
+        modifies main_mem, gpr_11, gpr_8, sp, gpr_10, pc, gpr_9;
+    {
+        if (speculate) {
+            call snapshot();
+        }
+        {
+            gpr_8 = main_mem[add_bv64_bv64(arg._1, arg._2)];
+            pc = add_bv64_bv64(pc, 4bv64);
+        }
+        {
+            gpr_8 = main_mem[{gpr_8}._1];
+            pc = add_bv64_bv64(pc, 4bv64);
+        }
+        {
+            gpr_9 = bv_left_shift(12bv8, add_bv64_bv64(gpr_9, 500000bv64));
+            pc = add_bv64_bv64(pc, 4bv64);
+        }
+        {
+            gpr_9 = add_bv64_bv64(gpr_9, 8);
+            pc = add_bv64_bv64(pc, 4bv64);
+        }
+        {
+            gpr_10 = bv_zero_extend(56, main_mem[add_bv64_bv64({gpr_9, gpr_8}._1, {gpr_9, gpr_8}._2)][7:0]);
+            pc = add_bv64_bv64(pc, 4bv64);
+        }
+        {
+            gpr_11 = bv_zero_extend(32, 200bv64[31:0]);
+            pc = add_bv64_bv64(pc, 4bv64);
+        }
+        {
+            gpr_10 = bv_zero_extend(32, mul_bv32_bv32(gpr_10[31:0], gpr_11[31:0]));
+            pc = add_bv64_bv64(pc, 4bv4);
+        }
+        {
+            gpr_8 = bv_left_shift(12bv8, add_bv64_bv64(gpr_8, 500000bv64));
+            pc = add_bv64_bv64(pc, 4bv64);
+        }
+        {
+            gpr_8 = add_bv64_bv64(gpr_8, 10bv64);
+            pc = add_bv64_bv64(pc, 4bv64);
+        }
+        {
+            gpr_10 = bv_zero_extend(56, main_mem[add_bv64_bv64({gpr_8, gpr_10}._1, bv_sign_extend(32, {gpr_8, gpr_10}._2[31:0]))][7:0]);
+            pc = add_bv64_bv64(pc, 4bv64);
+        }
+        {
+            gpr_8 = bv_left_shift(12bv8, add_bv64_bv64(gpr_8, 500000bv64));
+            pc = add_bv64_bv64(pc, 4bv64);
+        }
+        {
+            gpr_8 = add_bv64_bv64(gpr_8, 18bv64);
+            pc = add_bv64_bv64(pc, 4bv64);
+        }
+        {
+            gpr_11 = bv_zero_extend(56, main_mem[{gpr_8}._1][7:0]);
+            pc = add_bv64_bv64(pc, 4bv64);
+        }
+        {
+            gpr_10 = bv_zero_extend(32, and_bv32_bv32(gpr_11[31:0], gpr_10[31:0]));
+            pc = add_bv64_bv64(pc, 4bv64);
+        }
+        {
+            main_mem[{gpr_8}] = bv_concat(main_mem[{gpr_8}][61:8], gpr_10[7:0]);
+            pc = add_bv64_bv64(pc, 4bv64);
+        }
+        {
+            sp = add_bv64_bv64(sp, 10bv64);
+            pc = add_bv64_bv64(pc, 4bv64);
+        }
+        {
+            pc = gpr_30;
+        }
+    }
+    init {
+        var secret_value: bv64;
+        mem[secret_addr] = secret_value;
+        assume(pc==adversary_pc);
+    }
+    next {
+        case
+            (resolving): {
+                call resolve();
+            }
+            (pc==adversary_pc): {
+                next(adv);
+            }
+            (pc==4194304bv64): {
+                call spec_blk_4194304();
+            }
+            (pc==4194400bv64): {
+                call spec_blk_4194400();
+            }
+            (pc==4194340bv64): {
+                call spec_blk_4194340();
+            }
+        esac
+    }
+}
