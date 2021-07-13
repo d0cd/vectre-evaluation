@@ -10,3 +10,6 @@
 	path = vectre-angr-disasm
     url = git@github.com:d0cd/vectre-angr-disasm.git
     branch = main
+[submodule "uclid"]
+	path = uclid
+	url = git@github.com:uclid-org/uclid.git
