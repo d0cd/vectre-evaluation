@@ -1,6 +1,10 @@
 platform aarch64 {
 
     arch var main_mem: mem_t;
+    march var addr0: bv64;
+    march var addr1: bv64;
+    march var bp_state: bp_state_t;
+    march var spec_enabled: boolean;
 
     arch var pc: bv64;
 
